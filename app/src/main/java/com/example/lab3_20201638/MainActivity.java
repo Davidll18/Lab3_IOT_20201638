@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, " Bienvenido " +
                             logresp.getFirstName(), Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(MainActivity.this, Cronometro.class);
+                    Intent intent = new Intent(MainActivity.this, ActivityTimer.class);
                     intent.putExtra("nombre", logresp.getFirstName());
                     intent.putExtra("correo", logresp.getEmail());
                     intent.putExtra("apellido", logresp.getLastName());
