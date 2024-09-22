@@ -1,5 +1,6 @@
 package com.example.lab3_20201638;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -99,11 +100,25 @@ public class ActivityTimer extends AppCompatActivity {
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cerrar_app();
+                mostrarDialogoConfirmacion();
             }
         });
 
     }
+    private void mostrarDialogoConfirmacion() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Cerrar sesión")
+                .setMessage("¿Estás seguro de que deseas cerrar sesión?")
+                .setNegativeButton("Cancelar", null)
+                .setPositiveButton("Cerrar sesión", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        cerrar_app();
+                    }
+                })
+                .show();
+    }
+
     private void reiniciarContador() {
         if (contador_tiempo != null) {
             contador_tiempo.cancel();
@@ -210,7 +225,6 @@ public class ActivityTimer extends AppCompatActivity {
     }
 
     private void cerrar_app() {
-
         Intent intent = new Intent(ActivityTimer.this, MainActivity.class);
         startActivity(intent);
         finish();
