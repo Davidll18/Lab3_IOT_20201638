@@ -18,7 +18,7 @@
 
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/logout_butt"
             android:layout_width="98dp"
             android:layout_height="wrap_content"
             android:src="@drawable/round_logout_24" />

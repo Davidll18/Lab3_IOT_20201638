@@ -94,6 +94,14 @@ public class ActivityTimer extends AppCompatActivity {
             }
         });
 
+        ImageButton logoutButton = findViewById(R.id.logout_butt);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cerrar_app();
+            }
+        });
 
     }
     private void reiniciarContador() {
@@ -201,8 +209,11 @@ public class ActivityTimer extends AppCompatActivity {
         textViewTimer.setText(timeFormatted);
     }
 
-    private void cerrar_app(){
+    private void cerrar_app() {
 
+        Intent intent = new Intent(ActivityTimer.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }
